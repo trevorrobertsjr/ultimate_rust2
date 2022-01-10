@@ -13,7 +13,10 @@ pub struct Party {
 
 impl Default for Party {
     fn default() -> Self {
-        Party {
+        //references to Self here
+        Self {
+            // and here are syntactic sugar for Party
+            // however, it is more idiomatic
             at_restaurant: true,
             num_people: 8,
             cake: Cake::Chocolate,
@@ -75,7 +78,7 @@ fn main() {
 
     let party = Party {
         cake: Cake::MapleBacon,
-        ..Default::default()
+        ..Default::default() // struct update syntax. don't put a comma due to special syntax
     };
     println!("Yes! My party has my favorite {:?} cake!", party.cake);
 
